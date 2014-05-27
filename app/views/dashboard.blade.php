@@ -11,7 +11,7 @@
           {{ $totalIncome }}
         </div>
         <div class="in-thin">
-          {{ trans('texts.in_total_revenue') }}
+          <small>{{ trans('texts.in_total_revenue') }}</small>
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
           {{ $billedClients }}
         </div>
         <div class="in-thin">
-          {{ Utils::pluralize('billed_client', $billedClients) }}
+          <small>{{ Utils::pluralize('billed_client', $billedClients) }}</small>
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@
           {{ $invoicesSent }}
         </div>
         <div class="in-thin">
-          {{ Utils::pluralize('invoice', $invoicesSent) }} sent          
+          <small>{{ Utils::pluralize('invoice', $invoicesSent) }} sent</small>          
         </div>
       </div>
     </div>

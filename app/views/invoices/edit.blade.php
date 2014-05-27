@@ -587,17 +587,17 @@
 		@endif
 
 		window.logoImages = {};
-    logoImages.imageLogo1 = "{{ HTML::image_data('images/report_logo1.jpg') }}";
-		logoImages.imageLogoWidth1 =120;
-    logoImages.imageLogoHeight1 = 40
+    //logoImages.imageLogo1 = "{% HTML::image_data('/images/report_logo1.jpg') %}";
+    //logoImages.imageLogoWidth1 =120;
+    //logoImages.imageLogoHeight1 = 40
 
-    logoImages.imageLogo2 = "{{ HTML::image_data('images/report_logo2.jpg') }}";
-    logoImages.imageLogoWidth2 =325/2;
-    logoImages.imageLogoHeight2 = 81/2;
+    //logoImages.imageLogo2 = "{% HTML::image_data('/images/report_logo2.jpg') %}";
+    //logoImages.imageLogoWidth2 =325/2;
+    //logoImages.imageLogoHeight2 = 81/2;
 
-    logoImages.imageLogo3 = "{{ HTML::image_data('images/report_logo3.jpg') }}";
-    logoImages.imageLogoWidth3 =325/2;
-    logoImages.imageLogoHeight3 = 81/2;
+    //logoImages.imageLogo3 = "{% HTML::image_data('/images/report_logo3.jpg') %}";
+    //logoImages.imageLogoWidth3 =325/2;
+    //logoImages.imageLogoHeight3 = 81/2;
 
 
     return invoice;
