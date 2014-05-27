@@ -78,9 +78,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="{{ URL::to('/') }}" class='navbar-brand'>
-        <img src="{{ asset('images/invoiceninja-logo.png') }}" style="height:18px;width:auto"/>
-      </a>	    
+      <a href="{{ Utils::isNinja() || Auth::check() ? URL::to('/') : NINJA_URL }}" class='navbar-brand'></a>	    
     </div>
 
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
@@ -391,7 +389,11 @@ Want something changed? We're {{ link_to('https://github.com/hillelcoren/invoice
 @endif
 
 @if (!Utils::isNinjaProd() && !Utils::isNinjaDev())    
+<<<<<<< Updated upstream
 <div class="container">{{ trans('texts.powered_by') }} <a href="https://www.invoiceninja.com/?utm_source=powered_by" target="_blank">InvoiceNinja.com</a></div>
+=======
+
+>>>>>>> Stashed changes
 @endif
 
 <p>&nbsp;</p>

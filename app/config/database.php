@@ -66,9 +66,9 @@ return array(
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
-			'password' => '',
+			'database' => 'ninja',
+			'username' => 'ninja',
+			'password' => 'ninja',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',

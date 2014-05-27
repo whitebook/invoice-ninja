@@ -22,7 +22,7 @@
 //dd(gethostname());
 //Log::error('test');
 
-Route::get('/', 'HomeController@showWelcome');
+Route::get('/', 'UserController@login');
 Route::get('/rocksteady', 'HomeController@showWelcome');
 Route::get('/about', 'HomeController@showAboutUs');
 Route::get('/terms', 'HomeController@showTerms');

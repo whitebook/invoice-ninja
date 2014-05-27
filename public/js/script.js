@@ -660,9 +660,9 @@ function GetPdf(invoice,checkMath,report_id){
   doc.setProperties({
       title: 'Invoice ' + invoice.invoice_number,
       subject: '',
-      author: 'InvoiceNinja.com',
+      author: 'astravoice',
       keywords: 'pdf, invoice',
-      creator: 'InvoiceNinja.com'
+      creator: 'astravoice'
   });
 
   //set default style for report
@@ -1220,7 +1220,7 @@ function Report3AddHeader (invoice, layout, doc)
     var LineOne= invoice.account.name;
     var AlignLine = MaxWidth-30- (doc.getStringUnitWidth(LineOne) * doc.internal.getFontSize());
     if (LineOne) {
-        doc.setFontSize('36');
+        doc.setFontSize('12');
         doc.setFontType('bold');
         doc.text(40, 50, LineOne);
     }
