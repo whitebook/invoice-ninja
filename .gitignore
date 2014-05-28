@@ -16,6 +16,7 @@
 /Thumbs.db
 /ninja.sublime-project
 /ninja.sublime-workspace
+/node_modules
 /tests/_log
 .idea
 .project

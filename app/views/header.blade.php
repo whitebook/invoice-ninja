@@ -389,11 +389,7 @@ Want something changed? We're {{ link_to('https://github.com/hillelcoren/invoice
 @endif
 
 @if (!Utils::isNinjaProd() && !Utils::isNinjaDev())    
-<<<<<<< Updated upstream
-<div class="container">{{ trans('texts.powered_by') }} <a href="https://www.invoiceninja.com/?utm_source=powered_by" target="_blank">InvoiceNinja.com</a></div>
-=======
 
->>>>>>> Stashed changes
 @endif
 
 <p>&nbsp;</p>
