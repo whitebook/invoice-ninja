@@ -23,6 +23,7 @@
 //Log::error('test');
 
 Route::get('/', 'UserController@login');
+
 Route::get('/rocksteady', 'HomeController@showWelcome');
 Route::get('/about', 'HomeController@showAboutUs');
 Route::get('/terms', 'HomeController@showTerms');
