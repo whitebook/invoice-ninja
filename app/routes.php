@@ -33,6 +33,7 @@ Route::post('/contact_submit', 'HomeController@doContactUs');
 Route::get('/faq', 'HomeController@showFaq');
 Route::get('/features', 'HomeController@showFeatures');
 Route::get('/secure_payment', 'HomeController@showSecurePayment');
+Route::get('/testimonials', 'HomeController@showTestimonials');
 
 Route::get('log_error', 'HomeController@logError');
 Route::get('invoice_now', 'HomeController@invoiceNow');
@@ -228,6 +229,12 @@ define('GATEWAY_GOOGLE', 33);
 define('GATEWAY_QUICKBOOKS', 35);
 */
 
+/** TEST VALUES FOR THE CREDIT CARDS **/
+define('CREDIT_CARD_VISA', 1);
+define('CREDIT_CARD_MASTER_CARD', 2);
+define('CREDIT_CARD_AMERICAN_EXPRESS', 4);
+define('CREDIT_CARD_DINERS', 8);
+define('CREDIT_CARD_DISCOVER', 16);
 
 
 HTML::macro('nav_link', function($url, $text, $url2 = '', $extra = '') {

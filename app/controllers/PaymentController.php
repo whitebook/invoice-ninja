@@ -19,7 +19,7 @@ class PaymentController extends \BaseController
 	{
         return View::make('list', array(
             'entityType'=>ENTITY_PAYMENT, 
-            'title' => '- Payments',
+            'title' => trans('texts.payments'),
             'columns'=>Utils::trans(['checkbox', 'invoice', 'client', 'transaction_reference', 'method', 'payment_amount', 'payment_date', 'action'])
         ));
 	}
@@ -71,7 +71,7 @@ class PaymentController extends \BaseController
             'payment' => null, 
             'method' => 'POST', 
             'url' => "payments", 
-            'title' => '- New Payment',
+            'title' => trans('texts.new_payment'),
             //'currencies' => Currency::remember(DEFAULT_QUERY_CACHE)->orderBy('name')->get(),
             'paymentTypes' => PaymentType::remember(DEFAULT_QUERY_CACHE)->orderBy('id')->get(),
             'clients' => Client::scope()->with('contacts')->orderBy('name')->get());
@@ -92,7 +92,7 @@ class PaymentController extends \BaseController
             'payment' => $payment, 
             'method' => 'PUT', 
             'url' => 'payments/' . $publicId, 
-            'title' => '- Edit Payment',
+            'title' => 'Edit Payment',
             //'currencies' => Currency::remember(DEFAULT_QUERY_CACHE)->orderBy('name')->get(),
             'paymentTypes' => PaymentType::remember(DEFAULT_QUERY_CACHE)->orderBy('id')->get(),
             'clients' => Client::scope()->with('contacts')->orderBy('name')->get());
@@ -228,7 +228,9 @@ class PaymentController extends \BaseController
 			return $data;
 		}
     }
-
+    
+    
+    /** HÄR SKALL DET HÄMTAS UT BILDER!!!!! **/
     public function show_payment($invitationKey)
     {
         // For PayPal Express we redirect straight to their site
@@ -246,13 +248,16 @@ class PaymentController extends \BaseController
             {
                 return self::do_payment($invitationKey, false);
             }            
-        }
-
+        }  
+                
         $invitation = Invitation::with('invoice.invoice_items', 'invoice.client.currency', 'invoice.client.account.account_gateways.gateway')->where('invitation_key', '=', $invitationKey)->firstOrFail();
         $invoice = $invitation->invoice;         
         $client = $invoice->client;    
         $gateway = $invoice->client->account->account_gateways[0]->gateway;
         $paymentLibrary = $gateway->paymentlibrary;
+        
+        $mask = $invoice->client->account->account_gateways[0]->accepted_credit_cards;
+        $acceptedCreditCardTypes = Utils::getCreditcardTypes($mask);
 
         $data = [
             'showBreadcrumbs' => false,
@@ -261,8 +266,9 @@ class PaymentController extends \BaseController
             'invoice' => $invoice,
             'client' => $client,
             'contact' => $invitation->contact,
-            'paymentLibrary' => $paymentLibrary ,
-            'gateway' => $gateway,     
+            'paymentLibrary' => $paymentLibrary,
+            'gateway' => $gateway,
+            'acceptedCreditCardTypes' => $acceptedCreditCardTypes,     
 			'countries' => Country::remember(DEFAULT_QUERY_CACHE)->orderBy('name')->get(),     
         ];
 
