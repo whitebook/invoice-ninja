@@ -496,7 +496,14 @@
 				model.invoice().client().country = false;				
 			}
 			refreshPDF();
-		}); //.trigger('change');						
+		});
+
+		// If no clients exists show the client form when clicking on the client select input
+		if (clients.length === 0) {
+			$('.client_select input.form-control').on('click', function() {
+				model.showClientForm();
+			});
+		}		
 
 		$('#terms, #public_notes, #invoice_number, #invoice_date, #due_date, #po_number, #discount, #currency_id, #invoice_design_id, #recurring').change(function() {
 			setTimeout(function() {
@@ -1485,7 +1492,7 @@
 		model.addTaxRate();
 		@foreach ($taxRates as $taxRate)
 			model.addTaxRate({{ $taxRate }});
-		@endforeach	
+		@endforeach
 		@if ($invoice)
 			var invoice = {{ $invoice }};
 			ko.mapping.fromJS(invoice, model.invoice().mapping, model.invoice);			
@@ -1501,6 +1508,11 @@
 			model.invoice().addItem();
 			//model.addTaxRate();			
 		@endif
+                // Add the first tax rate for new invoices
+                //if(model.invoice_taxes() && model.tax_rates().length > 0) {
+                //    var tax = model.tax_rates()[0];
+                //    model.invoice().tax(tax);
+                //}
 	@endif
 
 	model.invoice().tax(model.getTaxRate(model.invoice().tax_name(), model.invoice().tax_rate()));			

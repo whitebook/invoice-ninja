@@ -19,3 +19,7 @@
 /tests/_log
 .idea
 .project
+<<<<<<< HEAD
+=======
+/nbproject/private/
+>>>>>>> upstream/master

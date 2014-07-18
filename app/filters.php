@@ -13,9 +13,12 @@
 
 App::before(function($request)
 {
-  $count = Session::get(SESSION_COUNTER, 0);
-  Session::put(SESSION_COUNTER, ++$count);
-  
+  if (Auth::check())
+  {
+    $count = Session::get(SESSION_COUNTER, 0);
+    Session::put(SESSION_COUNTER, ++$count);
+  }
+
   if (App::environment() == ENV_PRODUCTION)
   {
     if (!Request::secure()) 
@@ -66,7 +69,13 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('/');
+    if (Auth::guest()) {
+        if(Utils::isNinja()) {
+            return Redirect::guest('/');
+        } else {
+            return Redirect::guest('/login');
+        }
+    }
 });
 
 

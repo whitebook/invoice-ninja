@@ -1538,7 +1538,6 @@ function displayInvoiceHeader(doc, invoice, layout) {
   {
     doc.text(taxX, layout.tableTop, invoiceLabels.tax);
   }
-
 }
 
 function displayInvoiceItems(doc, invoice, layout) {
