@@ -6,6 +6,7 @@
 <link href="{{ asset('built.css') }}" rel="stylesheet" type="text/css"/>    
 
 <!--
+<script src="{{ asset('vendor/jquery/dist/jquery.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendor/jquery-ui/ui/minified/jquery-ui.min.js') }}" type="text/javascript"></script>				
 <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script>				
 <script src="{{ asset('vendor/datatables/media/js/jquery.dataTables.js') }}" type="text/javascript"></script>
@@ -322,7 +323,7 @@ Want something changed? We're {{ link_to('https://github.com/hillelcoren/invoice
 
 @if (Auth::check() && !Auth::user()->isPro())
   <div class="modal fade" id="proPlanModal" tabindex="-1" role="dialog" aria-labelledby="proPlanModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="min-width:910px">
+    <div class="modal-dialog medium-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -343,16 +344,14 @@ Want something changed? We're {{ link_to('https://github.com/hillelcoren/invoice
 
 
           <section class="plans">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-9">
-                  <h2>Go Pro to Unlock Premium Invoice Ninja Features</h2>
-                  <p>We believe that the free version of Invoice Ninja is a truly awesome product loaded 
-                    with the key features you need to bill your clients electronically. But for those who 
-                    crave still more Ninja awesomeness, we've unmasked the Invoice Ninja Pro plan, which 
-                    offers more versatility, power and customization options for just $50 per year. </p>
-                </div>
-             </div>
+            <div class="row">
+              <div class="col-md-12">
+                <h2>Go Pro to Unlock Premium Invoice Ninja Features</h2>
+                <p>We believe that the free version of Invoice Ninja is a truly awesome product loaded 
+                  with the key features you need to bill your clients electronically. But for those who 
+                  crave still more Ninja awesomeness, we've unmasked the Invoice Ninja Pro plan, which 
+                  offers more versatility, power and customization options for just $50 per year. </p>
+              </div>
             </div>              
 
             @include('plans')

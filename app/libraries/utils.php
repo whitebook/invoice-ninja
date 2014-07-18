@@ -31,11 +31,6 @@ class Utils
 	{
 		return isset($_ENV['NINJA_DEV']) && $_ENV['NINJA_DEV'];
 	}
-
-	public static function isRegistrationDisabled() 
-	{
-		return isset($_ENV['DISABLE_REGISTRATION']) && $_ENV['DISABLE_REGISTRATION'];	
-	}
         
 	public static function isPro()
 	{
@@ -89,8 +84,9 @@ class Utils
 
 		static::logError($message . ' ' . $exception);		
 
-		$data = [
-			'showBreadcrumbs' => false
+		$data = [		
+			'showBreadcrumbs' => false,
+			'hideHeader' => true
 		];
 
 		return View::make('error', $data)->with('error', $message);
@@ -445,5 +441,13 @@ class Utils
 		}
 
 		return $message;
+	}
+
+	public static function generateLicense() {
+		$parts = [];
+		for ($i=0; $i<5; $i++) {
+			$parts[] = strtoupper(str_random(4));
+		}
+		return join('-', $parts);
 	}
 }
