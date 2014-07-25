@@ -67,7 +67,6 @@ class Invoice extends EntityModel
 		$this->setVisible([
 			'invoice_number', 
 			'discount', 
-			//'shipping',
 			'po_number', 
 			'invoice_date', 
 			'due_date', 
@@ -82,7 +81,11 @@ class Invoice extends EntityModel
 			'account', 
 			'invoice_design_id',
 			'is_pro',
-			'is_quote']);
+			'is_quote',
+			'custom_value1',
+			'custom_value2',
+			'custom_taxes1',
+			'custom_taxes2']);
 		
 		$this->client->setVisible([
 			'name', 
@@ -117,7 +120,11 @@ class Invoice extends EntityModel
 			'custom_client_label1',
 			'custom_client_label2',
 			'primary_color',
-			'secondary_color']);		
+			'secondary_color',
+			'hide_quantity',
+			'hide_paid_to_date',
+			'custom_invoice_label1',
+			'custom_invoice_label2']);		
 
 		foreach ($this->invoice_items as $invoiceItem) 
 		{

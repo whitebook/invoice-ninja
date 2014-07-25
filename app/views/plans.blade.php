@@ -8,6 +8,7 @@
     <div class="cell">Live .PDF invoice creation </div>
     <div class="cell">4 beautiful invoice templates</div>
     <div class="cell">Accept credit card payments</div>
+    <div class="cell">Multi-user support</div>
     <div class="cell">Quotes/pro-forma invoices</div>
     <div class="cell">Custom invoice fields and colors</div>
     <div class="cell">Dynamic chart builder</div>
@@ -25,6 +26,7 @@
     <div class="cell"><div class="hide-desktop">Live .PDF invoice creation</div><span class="glyphicon glyphicon-ok"></div>
     <div class="cell"><div class="hide-desktop">4 beautiful invoice templates</div><span class="glyphicon glyphicon-ok"></div>
     <div class="cell"><div class="hide-desktop">Accept credit card payments</div><span class="glyphicon glyphicon-ok"></div>
+    <div class="cell"><div class="hide-desktop">Multi-user support</div><span class="glyphicon glyphicon-remove"></div>
     <div class="cell"><div class="hide-desktop">Quotes/pro-forma invoices</div><span class="glyphicon glyphicon-remove"></div>
     <div class="cell"><div class="hide-desktop">Custom fields and invoice colors</div><span class="glyphicon glyphicon-remove"></div>
     <div class="cell"><div class="hide-desktop">Dynamic chart builder</div><span class="glyphicon glyphicon-remove"></div>
@@ -36,12 +38,13 @@
   <div class="pro col-md-4">
 
     <div class="cell">Pro Plan<span class="glyphicon glyphicon-star"></div>
-    <div class="cell"><div class="hide-desktop">Number of clients per account</div><span style="color: #2299c0; font-size: 16px;">5,000</span></div>
+    <div class="cell"><div class="hide-desktop">Number of clients per account</div><span style="color: #2299c0; font-size: 16px;">Unlimited</span></div>
     <div class="cell"><div class="hide-desktop">Unlimited client invoices</div><span class="glyphicon glyphicon-ok"></div>
     <div class="cell"><div class="hide-desktop">Add your company logo</div><span class="glyphicon glyphicon-ok"></div>
     <div class="cell"><div class="hide-desktop">Live .PDF invoice creation</div><span class="glyphicon glyphicon-ok"></div>
     <div class="cell"><div class="hide-desktop">4 beautiful invoice templates</div><span class="glyphicon glyphicon-ok"></div>
     <div class="cell"><div class="hide-desktop">Accept credit card payments</div><span class="glyphicon glyphicon-ok"></div>
+    <div class="cell"><div class="hide-desktop">Multi-user support</div><span class="glyphicon glyphicon-ok"></div>
     <div class="cell"><div class="hide-desktop">Quotes/pro-forma invoices</div><span class="glyphicon glyphicon-ok"></div>
     <div class="cell"><div class="hide-desktop">Custom invoice fields and colors</div><span class="glyphicon glyphicon-ok"></div>
     <div class="cell"><div class="hide-desktop">Dynamic chart builder</div><span class="glyphicon glyphicon-ok"></div>
