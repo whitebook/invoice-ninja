@@ -175,7 +175,7 @@ return array(
   // payment pages
   'payment_type_id' => 'Payment type',
   'amount' => 'Amount',
-
+  'payment' => 'Payment',
   // account/company pages
   'work_email' => 'Email',
   'language_id' => 'Language',

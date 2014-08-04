@@ -31,31 +31,11 @@
 <br /><br />
 <div class="row">
 <div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    @if (isset($secEntityType))
-	<div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#recurring">Recurring {{ trans("texts.$entityType") }}</a>	
-	</h4>
-    </div>
-    <div id="recurring" class="panel-collapse collapse">
-      <div class="panel-body">
-	{{ Datatable::table()		
-	    	->addColumn($secColumns)
-	    	->setUrl(route('api.' . $secEntityType . 's'))    	
-	    	->setOptions('sPaginationType', 'bootstrap')
-	    	->render('datatable') }}    
-	 </div>
-    </div>
-  </div>
-
-    @endif	
-
 
 <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">{{ trans("texts.$entityType") }}
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">{{ trans("texts.$entityType"."s") }}
  </a>
       </h4>
     </div>
@@ -69,9 +49,31 @@
     	->setOptions('sPaginationType', 'bootstrap')
     	->render('datatable') 
     }}
- </div>
+       </div>
     </div>
   </div>
+
+ @if (isset($secEntityType))
+        <div class="panel panel-default">
+        <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#recurring">Recurring {{ trans("texts.$entityType"."s") }}</a>
+        </h4>
+    </div>
+    <div id="recurring" class="panel-collapse collapse">
+      <div class="panel-body">
+        {{ Datatable::table()
+                ->addColumn($secColumns)
+                ->setUrl(route('api.' . $secEntityType . 's'))
+                ->setOptions('sPaginationType', 'bootstrap')
+                ->render('datatable') }}
+         </div>
+    </div>
+  </div>
+
+    @endif
+
+
 
 </div>    
 </div>
