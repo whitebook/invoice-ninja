@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Invoice Ninja | {{ isset($title) ? $title : ' Free Online Invoice Templates & Generator' }}</title>    
-    <meta name="description" content="{{ isset($description) ? $description : 'Create and generate custom invoices online for free using Invoice Ninja. Use our templates or customize your own today.' }}"></meta>
+    <title>{{ isset($title) ? $title : ' Free Online Invoice Templates & Generator' }}</title>    
+    <meta name="description" content="{{ isset($description) ? $description : '' }}"></meta>
 
     <!-- Source: https://github.com/hillelcoren/invoice-ninja -->
     <!-- Version: {{ NINJA_VERSION }} -->
 
     <meta charset="utf-8">
-    <meta property="og:site_name" content="Invoice Ninja"></meta>
-    <meta property="og:url" content="https://www.invoiceninja.com"></meta>
-    <meta property="og:title" content="Invoice Ninja"></meta>
-    <meta property="og:image" content="https://www.invoiceninja.com/images/social.jpg"></meta>
+    <meta property="og:site_name" content=""></meta>
+    <meta property="og:url" content=""></meta>
+    <meta property="og:title" content=""></meta>
+    <meta property="og:image" content=""></meta>
     <meta property="og:description" content="Simple, Intuitive Invoicing."></meta>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
     <link href='//fonts.googleapis.com/css?family=Roboto:400,700,900,100' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
     <link href="{{ asset('favicon.ico') }}" rel="icon" type="image/x-icon">    
-    <link href="https://www.invoiceninja.com" rel="canonical"></link>
+    <link href="" rel="canonical"></link>
 
     <script src="{{ asset('built.js') }}" type="text/javascript"></script>
 

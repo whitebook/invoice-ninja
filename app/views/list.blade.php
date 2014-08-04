@@ -1,7 +1,7 @@
 @extends('header')
 
 @section('content')
-
+<div class="row">
 	{{ Former::open($entityType . 's/bulk')->addClass('listForm') }}
 	<div style="display:none">
 		{{ Former::text('action') }}
@@ -27,21 +27,54 @@
 		{{ Button::success_link(URL::to($entityType . 's/create'), trans("texts.new_$entityType"), array('class' => 'pull-right'))->append_with_icon('plus-sign'); }}	
         
 	</div>
-
+</div>
+<br /><br />
+<div class="row">
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
     @if (isset($secEntityType))
-		{{ Datatable::table()		
+	<div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#recurring">Recurring {{ trans("texts.$entityType") }}</a>	
+	</h4>
+    </div>
+    <div id="recurring" class="panel-collapse collapse">
+      <div class="panel-body">
+	{{ Datatable::table()		
 	    	->addColumn($secColumns)
 	    	->setUrl(route('api.' . $secEntityType . 's'))    	
 	    	->setOptions('sPaginationType', 'bootstrap')
 	    	->render('datatable') }}    
-	@endif	
+	 </div>
+    </div>
+  </div>
 
-	{{ Datatable::table()		
+    @endif	
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">{{ trans("texts.$entityType") }}
+ </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in">
+      <div class="panel-body">
+
+    {{ 
+        Datatable::table()		
     	->addColumn($columns)
     	->setUrl(route('api.' . $entityType . 's'))    	
     	->setOptions('sPaginationType', 'bootstrap')
-    	->render('datatable') }}
-    
+    	->render('datatable') 
+    }}
+ </div>
+    </div>
+  </div>
+
+</div>    
+</div>
     {{ Former::close() }}
 
     <script type="text/javascript">
