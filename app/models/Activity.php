@@ -119,7 +119,7 @@ class Activity extends Eloquent
 
 		$adjustment = 0;
 		$client = $invoice->client;
-		if (!$invoice->is_quote)
+		if (!$invoice->is_quote && !$invoice->is_recurring)
 		{
 			$adjustment = $invoice->amount;
 			$client->balance = $client->balance + $adjustment;
@@ -140,11 +140,6 @@ class Activity extends Eloquent
 
 	public static function archiveInvoice($invoice)
 	{
-		if ($invoice->invoice_status_id < INVOICE_STATUS_SENT)
-		{
-			return;
-		}
-
 		if (!$invoice->is_deleted)
 		{
 			$activity = Activity::getBlank();
@@ -175,11 +170,12 @@ class Activity extends Eloquent
 
 	public static function updateInvoice($invoice)
 	{
+		$client = $invoice->client;
+
 		if ($invoice->is_deleted && !$invoice->getOriginal('is_deleted'))
 		{
-			if (!$invoice->is_quote)
+			if (!$invoice->is_quote && !$invoice->is_recurring)
 			{
-				$client = $invoice->client;
 				$client->balance = $client->balance - $invoice->balance;
 				$client->paid_to_date = $client->paid_to_date - ($invoice->amount - $invoice->balance);
 				$client->save();
@@ -203,11 +199,13 @@ class Activity extends Eloquent
 				return;
 			}
 
-			$backupInvoice = Invoice::with('invoice_items', 'client.account', 'client.contacts')->find($invoice->id);			
+			$backupInvoice = Invoice::with('invoice_items', 'client.account', 'client.contacts')->find($invoice->id);
 
-			$client = $invoice->client;
-			$client->balance = $client->balance + $diff;
-			$client->save();
+			if (!$invoice->is_quote && !$invoice->is_recurring)
+			{
+				$client->balance = $client->balance + $diff;
+				$client->save();
+			}
 
 			$activity = Activity::getBlank($invoice);
 			$activity->client_id = $invoice->client_id;
@@ -215,7 +213,7 @@ class Activity extends Eloquent
 			$activity->activity_type_id = $invoice->is_quote ? ACTIVITY_TYPE_UPDATE_QUOTE : ACTIVITY_TYPE_UPDATE_INVOICE;
 			$activity->message = Utils::encodeActivity(Auth::user(), 'updated', $invoice);
 			$activity->balance = $client->balance;
-			$activity->adjustment = $invoice->is_quote ? 0 : $diff;
+			$activity->adjustment = $invoice->is_quote || $invoice->is_recurring ? 0 : $diff;
 			$activity->json_backup = $backupInvoice->hidePrivateFields()->toJSON();
 			$activity->save();
 		}
